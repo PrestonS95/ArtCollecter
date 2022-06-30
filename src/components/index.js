@@ -24,5 +24,5 @@ export {
     // Feature, 
     Loading, 
     // Preview, 
-    // Search, 
+    Search, 
     Title }
