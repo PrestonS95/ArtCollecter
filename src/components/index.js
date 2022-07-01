@@ -23,6 +23,6 @@ import Title from './Title'
 export {
     // Feature, 
     Loading, 
-    // Preview, 
+    Preview, 
     Search, 
     Title }

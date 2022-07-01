@@ -11,7 +11,7 @@ import {
 
 const Search = ({setIsLoading, setSearchResults}) => {
   // Make sure to destructure setIsLoading and setSearchResults from the props
-  console.log(setIsLoading, 'here i am')
+  // console.log(setIsLoading, 'here i am')
 
   // const setIsLoading = props.setIsLoading
 // const {setIsLoading, setSearchResults} = props
@@ -149,7 +149,7 @@ const Search = ({setIsLoading, setSearchResults}) => {
           <option value="any">Any</option>
           {/* map over the centuryList, return an <option /> */}
           {centuryList.map((century, idx) => {
-            console.log(century, 'here')
+            // console.log(century, 'here')
             return <option key={idx} value={century.name}>{century.name}</option>;
           })}
         </select>
