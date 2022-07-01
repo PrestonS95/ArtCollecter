@@ -85,7 +85,7 @@ const Search = ({setIsLoading, setSearchResults}) => {
             classification,
             queryString,
           });
-          console.log(result);
+          // console.log(result);
 
           setSearchResults(result);
         } catch (error) {
