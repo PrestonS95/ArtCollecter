@@ -99,7 +99,9 @@ const Searchable = (props) => {
 const Feature = (props) => {
   const { featuredResult, setIsLoading, setSearchResults } = props;
   if (!featuredResult) {
-    return <main id="feature"></main>;
+    return <main id="feature">
+        <p>I broke</p>
+    </main>;
   }
   const {
     title,
@@ -121,7 +123,6 @@ const Feature = (props) => {
   return (
     <main id="feature">
       <div className="object-feature">
-        {/* <Searchable /> */}
         <header>
           <h3>{title}</h3>
           <h4>{dated}</h4>
@@ -144,13 +145,32 @@ const Feature = (props) => {
               />
             </React.Fragment>
           ) : null}
+          {style ? (
+            <React.Fragment>
+              <span className="title">Style</span>
+              <span className="content">{style}</span>
+            </React.Fragment>
+          ) : null}
+          
+          
+          
           <span className="title">FACT NAME</span>
           <span className="content">FACT VALUE</span>
           <span className="title">NEXT FACT NAME</span>
           <span className="content">NEXT FACT VALUE</span>
         </section>
         <section className="photos">
-          {/* <img src={primaryimageurl} alt={description} /> */}
+          {images && images.length ? images.map((image, idx) => {
+            console.log(images, '!!!!!Khjkhjaskda')
+                return (
+                    
+
+                    <img key={`imageurl-${image.baseimageurl}${idx}`} src={image.baseimageurl} alt={image.baseimageurl} />
+            
+                    
+            )})           
+           : primaryimageurl ? <img src={primaryimageurl} alt={description} /> : null  
+        }
         </section>
       </div>
     </main>
