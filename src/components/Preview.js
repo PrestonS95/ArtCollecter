@@ -11,7 +11,7 @@ const Preview = (props) => {
   const records = props.searchResults.records;
 
   const { setIsLoading, setSearchResults, setFeaturedResult } = props;
-  console.log(info, "here i am ");
+  console.log(info, "here i am info");
   console.log(records, "here i am records");
 
   /**

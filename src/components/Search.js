@@ -118,13 +118,12 @@ const Search = ({setIsLoading, setSearchResults}) => {
           id="select-classification"
           value={classification}
           onChange={(event)=>{
-            setClassificationList(event.target.value) 
-            }}
-        >
+            setClassification(event.target.value) 
+            }}>
           <option value="any">Any</option>
           {/* map over the classificationList, return an <option /> */}
           {classificationList.map((classification, idx) => {
-            // console.log(classification, 'here')
+            console.log(classificationList, 'here')
             return (
               <option
                 key={idx}
@@ -143,7 +142,7 @@ const Search = ({setIsLoading, setSearchResults}) => {
           id="select-century"
           value={century}
           onChange={(event)=>{
-            setCenturyList(event.target.value) 
+            setCentury(event.target.value) 
             }}
         >
           <option value="any">Any</option>

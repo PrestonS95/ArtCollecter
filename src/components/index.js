@@ -21,7 +21,7 @@ import Title from './Title'
  */
 
 export {
-    // Feature, 
+    Feature, 
     Loading, 
     Preview, 
     Search, 

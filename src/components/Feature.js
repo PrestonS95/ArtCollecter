@@ -30,6 +30,32 @@ import { fetchQueryResultsFromTermAndValue } from '../api';
  *  - call setIsLoading, set it to false
  */
 const Searchable = (props) => {
+    const {setIsLoading, setSearchResults} = props
+    const searchTerm = props.fetchQueryResultsFromTermAndValue.term
+    const searchValue = props.fetchQueryResultsFromTermAndValue.value
+
+    console.log(searchTerm, 'here i am searchTerm')
+    console.log(searchValue, 'here i am searchValue')
+
+    return(
+        <span className="content">
+            <a href="#" onClick={async (event) => {
+                event.preventDefault()
+                setIsLoading(true)
+                value={searchValue}
+                term={searchTerm}
+                try {
+                    const result = await fetchQueryResultsFromTermAndValue (event.target.term, event.target.value)
+                    setSearchResults(result)
+                } catch (error) {
+                    console.error(error, 'something broke')
+                } finally {
+                    setIsLoading(false);
+                  }
+            }}>SOME SEARCH TERM</a>
+        </span>
+    )
+    
   
 }
 
@@ -68,7 +94,32 @@ const Searchable = (props) => {
  * This component should be exported as default.
  */
 const Feature = (props) => {
+    const {featuredResult, setIsLoading, setSearchResults} = props
+    return(
+        <main id="feature">
+            {featuredResult ? 
+            <div className="object-feature">
+             <header>
+               <h3>OBJECT TITLE</h3>
+               <h4>WHEN IT IS DATED</h4>
+             </header>
+             <section className="facts">
+               <span className="title">FACT NAME</span>
+               <span className="content">FACT VALUE</span>
+               <span className="title">NEXT FACT NAME</span>
+               <span className="content">NEXT FACT VALUE</span>
+             </section>
+             <section className="photos">
+               <img src=IMAGE_URL alt=SOMETHING_WORTHWHILE />
+             </section>
+           </div> : null}
+        
+           
+         
+        </main> 
+        )}
+    
+    
 
-}
 
 export default Feature;
