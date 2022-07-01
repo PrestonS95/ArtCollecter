@@ -123,7 +123,7 @@ const Search = ({setIsLoading, setSearchResults}) => {
           <option value="any">Any</option>
           {/* map over the classificationList, return an <option /> */}
           {classificationList.map((classification, idx) => {
-            console.log(classificationList, 'here')
+            // console.log(classificationList, 'here')
             return (
               <option
                 key={idx}
