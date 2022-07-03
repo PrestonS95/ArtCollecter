@@ -33,8 +33,9 @@ const Searchable = (props) => {
   const { setIsLoading, setSearchResults, searchTerm, searchValue } = props;
   // const searchTerm = fetchQueryResultsFromTermAndValue(props).term
   // const searchValue = fetchQueryResultsFromTermAndValue(props).value
-  console.log(searchTerm, "here i am searchTerm");
-  console.log(searchValue, "here i am searchValue");
+  // console.log(searchTerm, "here i am searchTerm");
+  // console.log(searchValue, "here i am searchValue");
+  console.log(props, 'searchable')
 
   return (
     <span className="content">
@@ -99,9 +100,11 @@ const Searchable = (props) => {
 const Feature = (props) => {
   const { featuredResult, setIsLoading, setSearchResults } = props;
   if (!featuredResult) {
-    return <main id="feature">
-        <p>I broke</p>
-    </main>;
+    return (
+      <main id="feature">
+        <p></p>
+      </main>
+    );
   }
   const {
     title,
@@ -129,14 +132,14 @@ const Feature = (props) => {
         </header>
         <section className="facts">
           {description ? (
-            <React.Fragment>
-              <span className="title">description</span>
+            <Fragment>
+              <span className="title">Description:</span>
               <span className="content">{description}</span>
-            </React.Fragment>
+            </Fragment>
           ) : null}
           {culture ? (
             <React.Fragment>
-              <span className="title">Culture</span>
+              <span className="title">Culture:</span>
               <Searchable
                 searchTerm="culture"
                 searchValue={culture}
@@ -147,30 +150,103 @@ const Feature = (props) => {
           ) : null}
           {style ? (
             <React.Fragment>
-              <span className="title">Style</span>
+              <span className="title">Style:</span>
               <span className="content">{style}</span>
             </React.Fragment>
           ) : null}
-          
-          
-          
-          <span className="title">FACT NAME</span>
-          <span className="content">FACT VALUE</span>
-          <span className="title">NEXT FACT NAME</span>
-          <span className="content">NEXT FACT VALUE</span>
+
+          {technique ? (
+            <React.Fragment>
+              <span className="title">Technique:</span>
+              <Searchable
+                searchTerm="technique"
+                searchValue={technique}
+                setIsLoading={setIsLoading}
+                setSearchResults={setSearchResults}
+              />
+            </React.Fragment>
+          ) : null}
+
+          {medium ? (
+            <React.Fragment>
+              <span className="title">Medium:</span>
+              <Searchable
+                searchTerm="medium"
+                searchValue={medium.toLowerCase()}
+                setIsLoading={setIsLoading}
+                setSearchResults={setSearchResults}
+              />
+            </React.Fragment>
+          ) : null}
+
+          {dimensions ? (
+            <React.Fragment>
+              <span className="title">Dimensions:</span>
+              <span className="content">{dimensions}</span>
+            </React.Fragment>
+          ) : null}
+
+          {people && people.length
+            ? people.map((person, idx) => {
+                // console.log(people, "almost there");
+                console.log(person.displayname);
+                return (
+                  <React.Fragment key={`person-${person.role}${idx}`}>
+                    <span className="title">People:</span>
+                    <Searchable
+                      
+                      searchTerm="person"
+                      searchValue={person.displayname}
+                      setIsLoading={setIsLoading}
+                      setSearchResults={setSearchResults}
+                    />
+                  </React.Fragment>
+                );
+              })
+            : null}
+            {department ? (
+            <Fragment>
+              <span className="title">Department:</span>
+              <span className="content">{department}</span>
+            </Fragment>
+          ) : null}
+          {division ? (
+            <Fragment>
+              <span className="title">Division:</span>
+              <span className="content">{division}</span>
+            </Fragment>
+          ) : null}
+          {contact ? (
+            <Fragment>
+              <span className="title">Contact:</span>
+              <span className="content">
+              <a target="_blank" href={`mailto:${contact}`}>{contact}</a></span>
+              
+            </Fragment>
+          ) : null}
+          {creditline ? (
+            <Fragment>
+              <span className="title">Creditline:</span>
+              <span className="content">{creditline}</span>
+            </Fragment>
+          ) : null}
+
         </section>
         <section className="photos">
-          {images && images.length ? images.map((image, idx) => {
-            console.log(images, '!!!!!Khjkhjaskda')
-                return (
-                    
-
-                    <img key={`imageurl-${image.baseimageurl}${idx}`} src={image.baseimageurl} alt={image.baseimageurl} />
-            
-                    
-            )})           
-           : primaryimageurl ? <img src={primaryimageurl} alt={description} /> : null  
-        }
+          {images && images.length ? (
+            images.map((image, idx) => {
+            //   console.log(images, "!!!!!Khjkhjaskda");
+              return (
+                <img
+                  key={`imageurl-${image.baseimageurl}${idx}`}
+                  src={image.baseimageurl}
+                  alt={image.baseimageurl}
+                />
+              );
+            })
+          ) : primaryimageurl ? (
+            <img src={primaryimageurl} alt={description} />
+          ) : null}
         </section>
       </div>
     </main>

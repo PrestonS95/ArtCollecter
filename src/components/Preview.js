@@ -11,8 +11,8 @@ const Preview = (props) => {
   const records = props.searchResults.records;
 
   const { setIsLoading, setSearchResults, setFeaturedResult } = props;
-  console.log(info, "here i am info");
-  console.log(records, "here i am records");
+  // console.log(info, "here i am info");
+  // console.log(records, "here i am records");
 
   /**
    * Destructure setSearchResults, setFeaturedResult, and setIsLoading from props
@@ -47,7 +47,7 @@ const Preview = (props) => {
           disabled={info.prev ? false : true}
           className="previous"
           onClick={()=>{
-            console.log('here i am')
+            // console.log('here i am')
             fetchPage(info.prev)
           }}
         >
@@ -58,7 +58,7 @@ const Preview = (props) => {
           disabled={info.next ? false : true}
           className="next"
           onClick={()=>{
-            console.log(info.next)
+            // console.log(info.next)
             fetchPage(info.next)
           }}
         >
