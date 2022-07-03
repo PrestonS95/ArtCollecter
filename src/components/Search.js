@@ -11,10 +11,6 @@ import {
 
 const Search = ({setIsLoading, setSearchResults}) => {
   // Make sure to destructure setIsLoading and setSearchResults from the props
-  // console.log(setIsLoading, 'here i am')
-
-  // const setIsLoading = props.setIsLoading
-// const {setIsLoading, setSearchResults} = props
 
   /**
    * We are at the Search component, a child of app. This has a form, so we need to use useState for
@@ -85,7 +81,6 @@ const Search = ({setIsLoading, setSearchResults}) => {
             classification,
             queryString,
           });
-          // console.log(result);
 
           setSearchResults(result);
         } catch (error) {
@@ -123,7 +118,6 @@ const Search = ({setIsLoading, setSearchResults}) => {
           <option value="any">Any</option>
           {/* map over the classificationList, return an <option /> */}
           {classificationList.map((classification, idx) => {
-            // console.log(classificationList, 'here')
             return (
               <option
                 key={idx}
@@ -148,7 +142,6 @@ const Search = ({setIsLoading, setSearchResults}) => {
           <option value="any">Any</option>
           {/* map over the centuryList, return an <option /> */}
           {centuryList.map((century, idx) => {
-            // console.log(century, 'here')
             return <option key={idx} value={century.name}>{century.name}</option>;
           })}
         </select>
