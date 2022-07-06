@@ -31,6 +31,7 @@ const App = () => {
     <Preview searchResults={searchResults} setIsLoading={setIsLoading} setSearchResults={setSearchResults} setFeaturedResult={setFeaturedResult}/>
     
     <Feature featuredResult={featuredResult} setIsLoading={setIsLoading} setSearchResults={setSearchResults}/>
+    {isLoading ? <Loading /> : null}
   </div>
 }
 
